@@ -1,25 +1,25 @@
 #!/bin/sh
 
-echo "deleting existing Docker Containers\n"
+echo "$(tput setaf 1)deleting existing Docker Containers!"
 rm -rf ~/.docker ~/Library/Containers ~/goinfre/DOCKER/.docker ~/goinfre/DOCKER/Containers
-echo "Creating Docker Folder in the goinfre\n"
+echo "$(tput setaf 1)Creating Docker Folder in the goinfre!"
 mkdir -p ~/goinfre/DOCKER/.docker
-echo "Creating Containers folder in the goinfre\n"
+echo "$(tput setaf 1)Creating Containers folder in the goinfre!"
 mkdir -p ~/goinfre/DOCKER/Containers
-echo "Creating shortcut for Docker folder in the home\n"
+echo "$(tput setaf 1)Creating shortcut for Docker folder in the home!"
 ln -s ~/goinfre/DOCKER/.docker ~/.docker
-echo "Creating shortcut for containers folder\n"
+echo "$(tput setaf 1)Creating shortcut for containers folder!"
 ln -s ~/goinfre/DOCKER/Containers ~/Library/Containers
-echo "install docker && docker-machine from Brew\n"
+echo "$(tput setaf 1)install docker && docker-machine from Brew..."
 brew install docker docker-machine
-echo "creating a Docker machine named default\n"
+echo "$(tput setaf 1)creating a Docker machine named default..."
 docker-machine create -d virtualbox default
-echo "switch to the docker machine"
+echo "$(tput setaf 1)switch to the docker machine!"
 eval $(docker-machine env default)
-echo "Creating the websites folder in the Desktop"
+echo "$(tput setaf 1)Creating the websites folder in the Desktop!"
 mkdir /Users/ybenbrai/Desktop/Web
-echo "run the container and link it with the folder in desktop"
+echo "$(tput setaf 1)run the container and link it with the folder in desktop!"
 docker run -it -v /Users/ybenbrai/Desktop/Web:/var/www/html -p 80:80 benaddayoussef/lampdocker:v2
-echo "your container of webserver is ready to go"
+echo "$(tput setaf 1)your container of webserver is ready to go !! :]"
 
 
